@@ -1,11 +1,10 @@
 from flask import Flask, request, make_response, render_template
-import urllib
 import urllib2
 import convert
 
 app = Flask(__name__)
 
-BASE_URL = 'http://urnik.fri.uni-lj.si/allocations'
+BASE_URL = 'http://urnik.fri.uni-lj.si'
 
 
 @app.route('/')
@@ -15,7 +14,7 @@ def index():
 
 @app.route('/allocations')
 def do_convert():
-    url = '%s?%s' % (BASE_URL, urllib.urlencode(request.args.to_dict()))
+    url = BASE_URL + request.full_path
     f = urllib2.urlopen(url)
     ical = convert.convert(f.read())
 
