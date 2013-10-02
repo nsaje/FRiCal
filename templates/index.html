@@ -8,7 +8,55 @@
 
     <title>FRiCal</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
     <!--<link rel='stylesheet' href="http://yui.github.io/skinbuilder/?mode=pureindex.html?opt=mine,3355BA,ffffff,1,1,10,1.5&h=0,-30,60&n=0,-30,75&l=0,-30,80&b=0,-30,90&mode=pure">-->
+    <style type="text/css">
+        html {
+            font-family: 'Source Sans Pro', sans-serif !important;
+        }
+        .hero {
+            text-align: center;
+            margin: 6em auto 3em;
+        }
+        .hero h1 {
+            font-size: 800%;
+            color: #1f8dd6;
+            font-weight: 100;
+        }
+        .hero h2 {
+            font-size: 260%;
+            color: #666;
+            font-weight: 100;
+        }
+        .hero-titles {
+            padding 0 2em;
+        }
+        .pure-form {
+            font-size: 200%;
+            display: inline !important;
+        }
+
+        @media (max-width: 767px) {
+            .hero {
+                margin: 2em 0 auto;
+            }
+                .hero-titles {
+                    padding: 0 1em;
+                }
+                .hero h1 {
+                    font-size: 250%;
+                    font-weight: 300;
+                }
+                .hero h2 {
+                    font-size: 165%;
+                }
+            .pure-form {
+                font-size: 150%;
+            }
+        }
+
+    </style>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
@@ -22,7 +70,6 @@
             }) 
     })
     </script>
-<link rel="stylesheet" href="http://purecss.io/combo/1.6.3?/css/main.css&/css/home.css&/css/rainbow/baby-blue.css">
 </head>
 <body>
     <div class="pure-u-1" id="main">
@@ -33,12 +80,12 @@
             </div>
 
             <div class="hero-cta">
-                <form class="pure-form" style="font-size:200%">
+                <form class="pure-form">
                     <p>
-                    <input id="in" type="text" style="text-align:center" size="70" class="pure-input-rounded" placeholder="Povezava do FRI urnika" required>
+                    <input id="in" type="text" style="text-align:center; display:inline" class="pure-input-rounded" placeholder="Povezava do FRI urnika" required>
                     </p>
                     <p>
-                    <input id="out" type="text" style="text-align:center" size="70" class="pure-input-rounded" placeholder="Povezava do iCal urnika" readonly>
+                    <input id="out" type="text" style="text-align:center; display:inline" class="pure-input-rounded" placeholder="Povezava do iCal urnika" readonly>
                     </p>
                 </form>
             </div>
