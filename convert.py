@@ -10,7 +10,8 @@ weekday_names = ['ponedeljek', 'torek', 'sreda', u'četrtek', 'petek']
 
 
 def convert(content):
-    print content
+    print "Content length:"
+    print len(content)
     soup = BeautifulSoup(content)
     entries = [cell.span.text for cell in
                soup.find_all(name='td', attrs={'class': 'allocated'})]
@@ -20,6 +21,7 @@ def convert(content):
                       map(lambda x: x.strip(),
                           e.split('\n')))
                for e in entries]
+    print "Entries:"
     print entries
 
     d = datetime.datetime(datetime.date.today().year - 1, 1, 1,
