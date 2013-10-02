@@ -1,0 +1,49 @@
+
+<!doctype html>
+<html lang="sl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pretvori FRI urnik v iCal povezavo, ki jo lahko uvoziš v poljuben program.">
+
+    <title>FRiCal</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
+    <!--<link rel='stylesheet' href="http://yui.github.io/skinbuilder/?mode=pureindex.html?opt=mine,3355BA,ffffff,1,1,10,1.5&h=0,-30,60&n=0,-30,75&l=0,-30,80&b=0,-30,90&mode=pure">-->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+            var base_url = "http://urnik.fri.uni-lj.si/allocations";
+            var new_url = document.URL + "allocations";
+            $('#in').change(function() {
+                if ($(this).val().indexOf(base_url) != 1) {
+                    ical_url = $(this).val().replace(base_url, new_url);
+                    $('#out').val(ical_url);
+                }
+            }) 
+    })
+    </script>
+<link rel="stylesheet" href="http://purecss.io/combo/1.6.3?/css/main.css&/css/home.css&/css/rainbow/baby-blue.css">
+</head>
+<body>
+    <div class="pure-u-1" id="main">
+        <div class="hero">
+            <div class="hero-titles">
+                <h1>FRiCal</h1>
+                <h2>Pretvori FRI urnik v iCal povezavo, ki jo lahko uvoziš v poljuben program.</h2>
+            </div>
+
+            <div class="hero-cta">
+                <form class="pure-form" style="font-size:200%">
+                    <p>
+                    <input id="in" type="text" style="text-align:center" size="70" class="pure-input-rounded" placeholder="Povezava do FRI urnika" required>
+                    </p>
+                    <p>
+                    <input id="out" type="text" style="text-align:center" size="70" class="pure-input-rounded" placeholder="Povezava do iCal urnika" readonly>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

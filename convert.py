@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-import urllib2
 from bs4 import BeautifulSoup
 import datetime
 from icalendar import Calendar, Event, vRecur
+import pytz
 
 __author__ = 'nsaje'
 
@@ -11,7 +11,8 @@ weekday_names = ['ponedeljek', 'torek', 'sreda', u'četrtek', 'petek']
 
 def convert(content):
     soup = BeautifulSoup(content)
-    entries = [cell.span.text for cell in soup.find_all(name='td', attrs={'class': 'allocated'})]
+    entries = [cell.span.text for cell in
+               soup.find_all(name='td', attrs={'class': 'allocated'})]
     #entries = [entries[1]]
 
     entries = [filter(lambda x: len(x) > 0,
@@ -19,8 +20,9 @@ def convert(content):
                           e.split('\n')))
                for e in entries]
 
-    d = datetime.datetime(datetime.date.today().year - 1, 1, 1)
-    d = d - datetime.timedelta(d.weekday()) # find monday
+    d = datetime.datetime(datetime.date.today().year - 1, 1, 1,
+                          tzinfo=pytz.timezone('Europe/Ljubljana'))
+    d = d - datetime.timedelta(d.weekday())  # find monday
 
     cal = Calendar()
     cal.add('prodid', '-//FRiCal//SL')
@@ -48,8 +50,6 @@ def convert(content):
     return cal.to_ical()
 
 if __name__ == "__main__":
-    #url = 'http://urnik.fri.uni-lj.si/allocations?student=63100351&timetable=159&timetable=168'
-    #f = urllib2.urlopen(url)
     f = open('testSource.html')
     content = f.read()
 
