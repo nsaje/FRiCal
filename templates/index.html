@@ -36,6 +36,9 @@
             font-size: 200%;
             display: inline !important;
         }
+        .pure-form input {
+            width: 70%;
+        }
 
         @media (max-width: 767px) {
             .hero {
@@ -63,7 +66,7 @@
             var base_url = "http://urnik.fri.uni-lj.si/allocations";
             var new_url = document.URL + "allocations";
             $('#in').change(function() {
-                if ($(this).val().indexOf(base_url) != 1) {
+                if ($(this).val().indexOf(base_url) != -1) {
                     ical_url = $(this).val().replace(base_url, new_url);
                     $('#out').val(ical_url);
                 }
@@ -91,6 +94,7 @@
             </div>
         </div>
     </div>
+    <a href="https://github.com/you"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
 </body>
 </html>
 
