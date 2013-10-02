@@ -10,6 +10,7 @@ weekday_names = ['ponedeljek', 'torek', 'sreda', u'četrtek', 'petek']
 
 
 def convert(content):
+    print content
     soup = BeautifulSoup(content)
     entries = [cell.span.text for cell in
                soup.find_all(name='td', attrs={'class': 'allocated'})]
@@ -19,6 +20,7 @@ def convert(content):
                       map(lambda x: x.strip(),
                           e.split('\n')))
                for e in entries]
+    print entries
 
     d = datetime.datetime(datetime.date.today().year - 1, 1, 1,
                           tzinfo=pytz.timezone('Europe/Ljubljana'))
@@ -50,7 +52,10 @@ def convert(content):
     return cal.to_ical()
 
 if __name__ == "__main__":
-    f = open('testSource.html')
+    url = "http://urnik.fri.uni-lj.si/allocations?student=63100349&timetable=159&timetable=168"
+    import urllib2
+    f = urllib2.urlopen(url)
+    #f = open('testSource.html')
     content = f.read()
 
     print convert(content)
