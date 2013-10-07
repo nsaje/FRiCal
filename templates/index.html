@@ -63,8 +63,8 @@
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-                var base_url = "http://urnik.fri.uni-lj.si/allocations";
-                var new_url = document.URL + "allocations";
+                var base_url = "http://urnik.fri.uni-lj.si/";
+                var new_url = document.URL; 
                 $('#in').change(function() {
                     if ($(this).val().indexOf(base_url) != -1) {
                         ical_url = $(this).val().replace(base_url, new_url);
