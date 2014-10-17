@@ -6,7 +6,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 
-BASE_URL = 'http://urnik.fri.uni-lj.si'
+BASE_URL = 'https://urnik.fri.uni-lj.si'
 
 
 @app.route('/')
